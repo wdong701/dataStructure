@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script src="./js/stack.js"></script>
+  <script>
+    function decimalToBinary(decNumber) {
+      const remStack = new Stack()
+      let number = decNumber 
+      let rem // 余数
+      let binaryString = '' // 定义一个二进制字符串
+
+      while (number > 0) {
+        rem = Math.floor(number % 2) // 取余
+        remStack.push(rem) // 入栈
+        number = Math.floor(number / 2) // 取整
+      }
+
+      while (!remStack.isEmpty()) {
+        binaryString += remStack.pop().toString(); // 出栈
+      }
+
+      return binaryString
+    }
+    console.log(decimalToBinary(10));
+  </script>
+</body>
+
+</html>
