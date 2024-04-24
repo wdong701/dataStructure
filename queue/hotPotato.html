@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script src="./js/queue.js"></script>
+  <script>
+    // elementsList：名单，num：淘汰位置
+    function hotPotato(elementsList, num) {
+      const queue = new Queue()
+      const elimitatedList = [] //被淘汰名单
+      for (let i = 0; i < elementsList.length; i++) {
+        queue.enqueue(elementsList[i])  //将名单加入队列
+      }
+      while (queue.size > 1) {
+        for (let i = 0; i < num; i++) {
+          queue.enqueue(queue.dequeue())  //将队列开头移除加到队尾
+        }
+        elimitatedList.push(queue.dequeue())  //加入淘汰名单
+      }
+      return {
+        eliminated: elementsList,
+        winner: queue.dequeue()
+      }
+    }
+
+    //测试
+    const names = ['John', 'Jack', 'Camila', 'Ingrid', 'Carl'];
+    const result = hotPotato(names, 7);
+    result.eliminated.forEach(name => {
+      console.log(`${name}在击鼓传花游戏中被淘汰。`);
+    });
+    console.log(`胜利者： ${result.winner}`);
+  </script>
+</body>
+
+</html>
