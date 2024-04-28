@@ -198,7 +198,7 @@ toString() {
   }
   let objString = `${this.head.element}`  // 头节点的值
   let current = this.head.next  // 记录当前节点
-  for (let i = 1; i < this.size && current != null; i++) {
+  for (let i = 1; i < this.size() && current != null; i++) {
     objString = `${objString},${current.element}`
     current = current.next
   }
