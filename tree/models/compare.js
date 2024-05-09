@@ -10,3 +10,8 @@ export function defaultCompare(a, b) {
   }
   return a < b ? Compare.LESS_THAN : Compare.BIGGER_THAN;
 }
+
+// 反向比较
+export function reverseCompare(compareFn) {
+  return (a, b) => compareFn(b, a);
+}
