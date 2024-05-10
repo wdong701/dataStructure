@@ -1,4 +1,4 @@
-class Queue {
+export default class Queue {
   constructor() {
     this.count = 0  //控制队列的大小
     this.lowestCount = 0  //前端元素位置

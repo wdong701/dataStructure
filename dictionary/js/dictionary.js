@@ -1,4 +1,4 @@
-import { defaultToString } from '../../util/util'
+import { defaultToString } from '../../util/util.js'
 
 export default class Dictionary {
   constructor(toStrFn = defaultToString) {
